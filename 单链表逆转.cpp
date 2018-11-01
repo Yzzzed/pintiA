@@ -30,6 +30,7 @@ void Print( List L ){
 }
 
 /* 你的代码将被嵌在这里 */
+/*
 List Reverse(List L){
   List cur = L;
   List n;
@@ -40,6 +41,23 @@ List Reverse(List L){
     cur = temp;
   }
   return n;
+}
+*/
+List Reverse(List L){
+  if(L == NULL){
+    return NULL;
+  }
+
+  if(L->Next == NULL){
+    return L;
+  }else{
+    PtrToNode curHead = L;
+    PtrToNode curHeadNext = L->Next;
+    L = Reverse(L->Next);
+    curHeadNext->Next = curHead;
+    curHead->Next = NULL;
+  }
+  return L;
 }
 
 
